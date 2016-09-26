@@ -1,11 +1,11 @@
 CC=g++
-CFLAGS=-I. -I../wiringPi/wiringPi -I../wiringPi/devLib
-SRCS=fsm.cpp
-OBJS=$(SRCS:.c=.o)
+CFLAGS=-I. -I../wiringPi/wiringPi -I../wiringPi/devLib -Wno-c++11-extensions
+SRCS=t.cpp
+OBJS=$(SRCS:.cpp=.o)
 DEPS=
 LIBS=
 # LIBS=-lwiringPi -lwiringPiDev
-EXEC=fsm
+EXEC=t
 
 $(EXEC): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LIBS)

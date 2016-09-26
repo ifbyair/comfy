@@ -39,6 +39,10 @@ GPIO::GPIO (short pin, dir_t mode = IN, pull_t mpull = NONE){
 }
 
 GPIO::~GPIO(){
+#ifndef SIMULATION
+    pinMode(pin,IN);
+    pullUpDnControl(pin,LOW)
+#endif
     direction = IN;
     pull = NONE;
 }
