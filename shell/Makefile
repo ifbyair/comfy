@@ -1,8 +1,8 @@
 CC=g++
 CFLAGS=-I. -std=c++11
-SRCS=shell.cpp worker.cpp
+SRCS=shell.cpp worker.cpp channel.cpp message.cpp
 OBJS=$(SRCS:.cpp=.o)
-DEPS=shell.h worker.h
+DEPS=shell.h worker.h channel.h message.h
 LIBS=
 # LIBS=-lwiringPi -lwiringPiDev
 EXEC=cshell
