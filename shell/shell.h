@@ -1,1 +1,1 @@
-#define PLACEHOLDER 1
+#define NWORKERS 2

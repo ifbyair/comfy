@@ -2,6 +2,7 @@
 #define MESSAGE_H_INCLUDED
 class Message{
     int id;
+    std::string payload;
 public:
     void dump();
 };

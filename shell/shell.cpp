@@ -2,15 +2,18 @@
 #include <vector>
 #include <string>
 #include "worker.h"
+#include "channel.h"
+#include "shell.h"
 
-using namespace std;
+// using namespace std;
 
 class Hub {
-    vector <Worker *> workers;
+    std::vector <Channel *> channels;
+    std::vector <Worker *> workers;
 public:
-    void dump(){ cout << "Hub is here" << endl; }
+    void dump(){ std::cout << "Hub is here" << std::endl; }
 };
 
 int main(){
-    cout << __cplusplus << endl;
+    std::cout << __cplusplus << std::endl;
 }
