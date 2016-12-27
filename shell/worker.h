@@ -13,11 +13,4 @@ public:
     void dump();
 };
 
-class Cronos: public Worker {
-    long status;
-public:
-    void run();
-    void send();
-    void receive();
-};
 #endif

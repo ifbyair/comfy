@@ -6,6 +6,9 @@ class Channel {
     std::queue <Message *> up;
     std::queue <Message *> down;
     int id;
+protected:
+	void send_up(Message *);
+	void send_down(Message *);
 public:
     void dump();
 };
