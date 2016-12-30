@@ -25,5 +25,5 @@ int main(){
     Hub mainhub;
     Cronos cronos;
 
-    mainhub += cronos;
+    mainhub += &cronos;
 }

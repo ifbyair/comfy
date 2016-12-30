@@ -3,9 +3,9 @@
 #include "message.h"
 #include "component.h"
 
-void Component::dump(){
-    std::cout << id << std::endl;
-}
+// void Component::dump(){
+//     std::cout << id << std::endl;
+// }
 
 void Cronos::send(){
     std::cout << status << std::endl;
