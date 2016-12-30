@@ -19,9 +19,9 @@ class Cronos: public Component {
     long status;
 public:
     Cronos(){};
-    virtual ~Cronos(){};
-    virtual void run();
-    virtual void dump();
+    ~Cronos(){};
+    void run();
+    void dump();
     void send();
     void receive();
 };

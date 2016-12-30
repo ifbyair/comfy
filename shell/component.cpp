@@ -20,5 +20,5 @@ void Cronos::run(){
 }
 
 void Cronos::dump(){
-	std::cout << id << std::endl;
+	std::cout << protection_status << std::endl;
 }
