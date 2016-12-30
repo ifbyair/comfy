@@ -16,9 +16,10 @@ public:
 };
 
 class Cronos: public Component {
+	std::string id;
     long status;
 public:
-    Cronos(){};
+    Cronos(std::string i){ id = i; };
     ~Cronos(){};
     void run();
     void dump();
