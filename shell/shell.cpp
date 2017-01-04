@@ -21,7 +21,6 @@ void Hub::operator+=(Component *c){
 
 void Hub::run(){
 	// std::vector<Component>::iterator v = components.begin();
-	Component *v;
 	while(true){
 		for(int i = 0; i < components.size(); i++){
 			components[i]->dump();
@@ -30,13 +29,13 @@ void Hub::run(){
 }
 
 int main(){
-    std::cout << __cplusplus << std::endl;
+    // std::cout << __cplusplus << std::endl;
     Hub mainhub;
     Cronos c1("cronos0");
-    Cronos c2("cronos1");
+    IOmngr i1("PRmanager0");
 
     mainhub += &c1;
-    mainhub += &c2;
+    mainhub += &i1;
 
     mainhub.run();
 }

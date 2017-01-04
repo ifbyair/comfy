@@ -3,7 +3,7 @@ CFLAGS=-I. -std=c++11
 SRCS=shell.cpp worker.cpp channel.cpp message.cpp component.cpp
 OBJS=$(SRCS:.cpp=.o)
 DEPS=shell.h worker.h channel.h message.h component.h
-LIBS=
+LIBS=-lpthread
 # LIBS=-lwiringPi -lwiringPiDev
 EXEC=cshell
 

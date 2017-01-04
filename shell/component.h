@@ -13,6 +13,8 @@ public:
     virtual ~Component(){};
     virtual void run() =0;
     virtual void dump() =0;
+    virtual void send() =0;
+    virtual void receive() =0;
 };
 
 class Cronos: public Component {
@@ -25,5 +27,16 @@ public:
     void dump();
     void send();
     void receive();
+};
+
+class IOmngr: public Component {
+	std::string id;
+public:
+	IOmngr(std::string i){ id = i; };
+	~IOmngr(){};
+	void run();
+	void dump();
+	void send();
+	void receive();
 };
 #endif
