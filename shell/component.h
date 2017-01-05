@@ -5,8 +5,9 @@
 #include "channel.h"
 
 class Component: protected Worker, protected Channel {
-    int id;
-protected:
+protected:   
+    std::string id;
+    virtual void mainloop() =0;
     int protection_status;
 public:
     Component(){};
@@ -18,8 +19,9 @@ public:
 };
 
 class Cronos: public Component {
-	std::string id;
+//	std::string id;
     long status;
+    void mainloop();
 public:
     Cronos(std::string i){ id = i; };
     ~Cronos(){};
@@ -30,13 +32,19 @@ public:
 };
 
 class IOmngr: public Component {
-	std::string id;
+//	std::string id;
+    void mainloop();
+    std::string current_prompt;
 public:
-	IOmngr(std::string i){ id = i; };
+	IOmngr(std::string i){ 
+        id = i;
+        current_prompt = "main > ";
+    };
 	~IOmngr(){};
 	void run();
 	void dump();
 	void send();
 	void receive();
+    std::string getInput();
 };
 #endif
