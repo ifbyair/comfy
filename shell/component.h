@@ -3,11 +3,13 @@
 #include <iostream>
 #include "worker.h"
 #include "channel.h"
+#include <pthread.h>
 
 class Component: protected Worker, protected Channel {
 protected:   
     std::string id;
-    virtual void mainloop() =0;
+    pthread_t tid;
+    // virtual void *mainloop(void *) =0;
     int protection_status;
 public:
     Component(){};
@@ -19,9 +21,8 @@ public:
 };
 
 class Cronos: public Component {
-//	std::string id;
     long status;
-    void mainloop();
+    void *mainloop(void *);
 public:
     Cronos(std::string i){ id = i; };
     ~Cronos(){};
@@ -32,19 +33,18 @@ public:
 };
 
 class IOmngr: public Component {
-//	std::string id;
-    void mainloop();
-    std::string current_prompt;
+    static void *mainloop(void *);
+    static std::string getInput();
+    static std::string current_prompt;
 public:
-	IOmngr(std::string i){ 
+	IOmngr(std::string i){
         id = i;
-        current_prompt = "main > ";
+        IOmngr::current_prompt = "main > ";
     };
 	~IOmngr(){};
 	void run();
 	void dump();
 	void send();
 	void receive();
-    std::string getInput();
 };
 #endif

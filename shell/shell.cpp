@@ -38,4 +38,7 @@ int main(){
     mainhub += &i1;
 
     mainhub.run();
+
+    while(true)
+        ;
 }
