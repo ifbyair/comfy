@@ -10,8 +10,9 @@ void Cronos::send(){
     std::cout << status << std::endl;
 };
 
-void Cronos::receive(){
+Message *Cronos::receive(){
     std::cout << status << std::endl;
+    return NULL;
 };
 
 void Cronos::run(){
@@ -19,19 +20,20 @@ void Cronos::run(){
 };
 
 void Cronos::dump(){
-	std::cout << id << std::endl;
+	std::cout << index << ": " << id << std::endl;
 };
 
 void *Cronos::mainloop(void *arg){
 	return (void *)NULL;
 };
 
-void IOmngr::send(){
-    std::cout << id << std::endl;
+void IOmngr::send(Message *m){
+    send_up(m);
 };
 
-void IOmngr::receive(){
+Message *IOmngr::receive(){
     std::cout << id << std::endl;
+    return NULL;
 };
 
 void *IOmngr::mainloop(void *arg){
@@ -50,11 +52,10 @@ void IOmngr::run(){
 
     if(rc != 0)
     	gtfo("Problem with IOmngr::run() - couldn't start a thread");
-    // mainloop();
 };
 
 void IOmngr::dump(){
-	std::cout << id << std::endl;
+	std::cout << index << ": " << id << std::endl;
 };
 
 std::string IOmngr::current_prompt;
@@ -62,8 +63,7 @@ std::string IOmngr::current_prompt;
 std::string IOmngr::getInput(){
 	std::string result;
 
-	// std::cout << IOmngr::current_prompt;
-	std::cout << "main > ";
+	std::cout << IOmngr::current_prompt;
 	std::cin >> result;
 	return result;
 };

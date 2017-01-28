@@ -8,16 +8,17 @@
 class Component: protected Worker, protected Channel {
 protected:   
     std::string id;
+    int index;
     pthread_t tid;
-    // virtual void *mainloop(void *) =0;
     int protection_status;
 public:
     Component(){};
     virtual ~Component(){};
     virtual void run() =0;
     virtual void dump() =0;
-    virtual void send() =0;
-    virtual void receive() =0;
+    virtual void send(Message *) =0;
+    virtual Message *receive() =0;
+    void setIndex(int i){ index = i; };
 };
 
 class Cronos: public Component {
@@ -29,7 +30,7 @@ public:
     void run();
     void dump();
     void send();
-    void receive();
+    Message *receive();
 };
 
 class IOmngr: public Component {
@@ -44,7 +45,7 @@ public:
 	~IOmngr(){};
 	void run();
 	void dump();
-	void send();
-	void receive();
+	void send(Message *);
+	Message *receive();
 };
 #endif

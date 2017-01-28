@@ -2,5 +2,5 @@
 #include "message.h"
 
 void Message::dump(){
-    std::cout << id << std::endl;
+    std::cout << "My payload: " << payload << std::endl;
 }
