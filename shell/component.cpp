@@ -32,16 +32,19 @@ void IOmngr::send(Message *m){
 };
 
 Message *IOmngr::receive(){
-    std::cout << id << std::endl;
-    return NULL;
+    // std::cout << id << std::endl;
+    return check_in();
 };
 
 void *IOmngr::mainloop(void *arg){
 	std::string result;
+	Message *msg;
 
 	while(true){
 		result = IOmngr::getInput();
-		std::cout << result << std::endl;
+		// std::cout << result << std::endl;
+		msg = new Message(result);
+		IOmngr::instance->send(msg);
 	}
 };
 
@@ -59,6 +62,7 @@ void IOmngr::dump(){
 };
 
 std::string IOmngr::current_prompt;
+IOmngr *IOmngr::instance;
 
 std::string IOmngr::getInput(){
 	std::string result;

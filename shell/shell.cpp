@@ -18,6 +18,7 @@ public:
 };
 
 void Hub::proc_message(Message *m){
+    std::cout << "Message received: ";
     m->dump();
     // delete(*m);
 }

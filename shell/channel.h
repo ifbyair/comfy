@@ -9,6 +9,9 @@ class Channel {
 protected:
 	void send_up(Message *);
 	void send_down(Message *);
+
+	Message *check_in();
+	Message *check_out();
 public:
     void dump();
 };

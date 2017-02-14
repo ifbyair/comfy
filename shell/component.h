@@ -37,10 +37,12 @@ class IOmngr: public Component {
     static void *mainloop(void *);
     static std::string getInput();
     static std::string current_prompt;
+    static IOmngr *instance;
 public:
 	IOmngr(std::string i){
         id = i;
         IOmngr::current_prompt = "main > ";
+        instance = this;
     };
 	~IOmngr(){};
 	void run();
